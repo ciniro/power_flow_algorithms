@@ -5,7 +5,6 @@ library(matlib)
 #-----------------------------------------------------------------------------#
 #                                                                             #
 #                FUNCOES PARA CALCULO DO FLUXO DE POTENCIA AC                 #
-#          DISCIPLINA: ANÁLISE ESTÁTICA DE SISTEMAS DE ENERGIA ELÉTRICA       #
 #                                                                             #
 #                     CINIRO APARECIDO LEITE NAMETALA                         #
 #-----------------------------------------------------------------------------#
@@ -728,7 +727,7 @@ atualizaProblema <- function(barras, vetX, vetIncognitas, vetEquacoes) {
   return(list(vetXNovo, vetEquacoesNovo, vetIncognitasNovo, vetPotenciasNovo))
 }
 
-# RESOLUÇÃO -------------------------------------------------------------------------
+# RESOLUÃ‡ÃƒO -------------------------------------------------------------------------
 
 #Escolhe o sistema para leitura
 #sistema <- "2barras"
@@ -740,7 +739,7 @@ sistema <- "14barras"
 tolerancia <- 0.0001
 
 #executa controle de reativos
-controleReativo <- TRUE
+controleReativo <- FALSE
 
 #executa controle de tensao
 controleTensao <- FALSE
@@ -749,9 +748,6 @@ vmin <- 0.8
 
 #Executa a leitura dos arquivos de barras e linhas do sistema
 barras <- read.table(paste("dados/",sistema,"_barras.csv",sep=""), header=T, sep=";")
-
-#barras[2,"q"] <- 0.6
-#barras[2,"v"] <- 1.3
 
 linhas <- read.table(paste("dados/",sistema,"_linhas.csv",sep=""), header=T, sep=";")
 
@@ -820,7 +816,7 @@ while (max(abs(vetF), na.rm = TRUE)>tolerancia) {
   #PASSO 5B: CALCULAR A MATRIZ JACOBIANA (J)
   matJ <- calculaJacobiana(jacN, barras, linhas, matG, matB, vetX)
 
-  #PASSO 6: APLICAR O MÉTODO DE NEWTON-RAPHSON
+  #PASSO 6: APLICAR O MÃ‰TODO DE NEWTON-RAPHSON
   deltaX <- Ginv(matJ)%*%vetF
   vetX <- vetX + deltaX
   
