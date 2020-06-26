@@ -1,7 +1,6 @@
 #-----------------------------------------------------------------------------#
 #                                                                             #
 #                FUNCOES PARA CALCULO DO FLUXO DE POTENCIA AC                 #
-#          DISCIPLINA: ANÁLISE ESTÁTICA DE SISTEMAS DE ENERGIA ELÉTRICA       #
 #                                                                             #
 #                     CINIRO APARECIDO LEITE NAMETALA                         #
 #-----------------------------------------------------------------------------#
