@@ -60,7 +60,6 @@ calculaPoteAtivas <- function(sist, nc, nb, thetaComPerdas) {
   return(poteAtivasBarra)
 }
 
-#Corrigir essa função depois para verificar o sinal da potencia!!!
 somaPotenciaNaBarra <- function(M, nb) {
   potTotal <- rep(NA, nb)
   for (i in 1:nb) {
@@ -90,7 +89,7 @@ nconexoes <- 7
 linf <- 1
 lsup <- 1.5
 
-#MATRIZ de impedancias (JÁ ESTÁ EM PU)
+#MATRIZ de impedancias (JÃ ESTÃ EM PU)
 sist <- matrix(c(1,2,0.02,0.06,
                  1,3,0.08,0.24,
                  2,3,0.06,0.18,
